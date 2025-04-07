@@ -1,3 +1,8 @@
+package core;
+
+import java.util.Date;
+import java.util.Map;
+
 public class CreditCardPayment extends Payment {
     public CreditCardPayment(double amount, String currency,
                              Map<String, String> customerInfo,
@@ -8,9 +13,9 @@ public class CreditCardPayment extends Payment {
     @Override
     public boolean validatePayment() {
         return amount > 0 &&
-                (currency.equals("USD") || currency.equals("EUR") || currency.equals("GBP")) &&
-                customerInfo.containsKey("email") &&
-                paymentDetails.getOrDefault("card_number", "").length() >= 12;
+               (currency.equals("USD") || currency.equals("EUR") || currency.equals("GBP")) &&
+               customerInfo.containsKey("email") &&
+               paymentDetails.getOrDefault("card_number", "").length() >= 12;
     }
 
     @Override
