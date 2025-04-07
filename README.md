@@ -1,11 +1,3 @@
-# Stage 1: Code Analysis and Design Flaws
-
-## Objective
-
-Analyze the original `PaymentProcessor.java` class to identify **code smells** and **violations of SOLID principles**.
-
----
-
 ## Code Smells Identified
 
 | # | Issue | Description |
