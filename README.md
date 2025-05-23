@@ -1,14 +1,14 @@
-## Code Smells Identified
+## بوی کد شناسایی‌شده (Code Smells Identified)
 
-| # | Issue | Description |
-|--|-------|-------------|
-| 1 | **God Class** | `PaymentProcessor` has too many responsibilities: validation, processing, logging, and integration. |
-| 2 | **Hardcoded Configuration** | API endpoints are stored directly in a config map and used directly. |
-| 3 | **Long Conditional / Switch** | Uses `switch(paymentType)` instead of polymorphism. |
-| 4 | **Long Method** | The `validatePayment` method handles multiple concerns and is difficult to extend. |
-| 5 | **Code Duplication** | Similar logic repeated across different `processXXX` methods. |
-| 6 | **Lack of Abstraction** | All payment types and gateway logic are embedded in a single class. |
-| 7 | **Tight Coupling** | Direct dependencies on logic for each payment type within a monolithic structure. |
+| # | مورد | توضیحات |
+|--|------|---------|
+| 1 | **کلاس خدا (God Class)** | کلاس `PaymentProcessor` وظایف زیادی دارد: اعتبارسنجی، پردازش، ثبت گزارش، و یکپارچه‌سازی. |
+| 2 | **پیکربندی هاردکدشده** | آدرس‌های API مستقیماً در یک نگاشت پیکربندی ذخیره شده و بدون واسطه استفاده می‌شوند. |
+| 3 | **شرط طولانی / سوئیچ** | استفاده از `switch(paymentType)` به جای پلی‌مورفیسم. |
+| 4 | **متد طولانی** | متد `validatePayment` چندین وظیفه را به عهده دارد و توسعه آن دشوار است. |
+| 5 | **تکرار کد** | منطق مشابهی در متدهای مختلف `processXXX` تکرار شده است. |
+| 6 | **فقدان انتزاع** | همه نوع‌های پرداخت و منطق دروازه پرداخت در یک کلاس واحد قرار دارند. |
+| 7 | **وابستگی شدید** | وابستگی مستقیم به منطق هر نوع پرداخت در ساختاری یکپارچه و بزرگ. |
 
 ---
 
@@ -16,23 +16,23 @@
 
 | Principle | Violation |
 |----------|-----------|
-| **S - Single Responsibility** | Class `PaymentProcessor` handles multiple tasks that should be in separate classes. |
-| **O - Open/Closed** | Adding a new payment type requires modifying the `switch` block. |
-| **L - Liskov Substitution** | Not applicable yet, but current structure doesn't support interchangeability of types. |
-| **I - Interface Segregation** | No interfaces exist for splitting payment or gateway responsibilities. |
-| **D - Dependency Inversion** | Class depends on concrete logic instead of abstractions (e.g. API calls, payment validation). |
+| **S - Single Responsibility** | کلاس `PaymentProcessor` چندین وظیفه دارد که باید در کلاس‌های جداگانه باشند. |
+| **O - Open/Closed** | افزودن نوع پرداخت جدید نیاز به تغییر در بلوک `switch` دارد. |
+| **L - Liskov Substitution** | هنوز کاربرد ندارد، اما ساختار فعلی از قابلیت جایگزینی نوع‌ها پشتیبانی نمی‌کند. |
+| **I - Interface Segregation** | هیچ واسطی برای تفکیک مسئولیت‌های پرداخت یا دروازه پرداخت وجود ندارد. |
+| **D - Dependency Inversion** | کلاس به منطق پیاده‌سازی‌شده وابسته است (مثلاً تماس‌های API، اعتبارسنجی پرداخت). |
 
 ---
 
-## Suggested Documentation or Inline Comments
+## مستندسازی یا توضیحات درون‌خطی پیشنهادی
 
 ```java
-// Code Smells Identified:
-// 1. God Class - PaymentProcessor does too much.
-// 2. Hardcoded endpoints in configuration map.
-// 3. Switch-case structure instead of polymorphism.
-// 4. Duplicated logic in different processXXX methods.
-// 5. Violates SRP, OCP, DIP from SOLID principles.
+// بوی کد شناسایی‌شده:
+// 1. God Class - PaymentProcessor کارهای زیادی انجام می‌دهد.
+// 2. استفاده از endpointهای هاردکدشده در نگاشت پیکربندی.
+// 3. استفاده از ساختار switch-case به جای پلی‌مورفیسم.
+// 4. منطق تکراری در متدهای مختلف processXXX.
+// 5. نقض اصول SRP, OCP, DIP از SOLID.
 ```
 
 ---
