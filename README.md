@@ -12,9 +12,9 @@
 
 ---
 
-## Violations of SOLID Principles
+## نقض اصول SOLID
 
-| Principle | Violation |
+| اصل | نقض |
 |----------|-----------|
 | **S - Single Responsibility** | کلاس `PaymentProcessor` چندین وظیفه دارد که باید در کلاس‌های جداگانه باشند. |
 | **O - Open/Closed** | افزودن نوع پرداخت جدید نیاز به تغییر در بلوک `switch` دارد. |
